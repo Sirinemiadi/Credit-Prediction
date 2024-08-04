@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="login">
+      <h1>Simulation de votre crédit</h1>
+      <form action="{{ url_for('predict') }}" method="post">
+        <input
+          type="text"
+          name="Credit_History"
+          placeholder="Credit History"
+          required
+        />
+        <input type="text" name="Married" placeholder="Married" required />
+        <input
+          type="text"
+          name="CoapplicantIncome"
+          placeholder="Coapplicant Income"
+          required
+        />
+        <button type="submit" class="btn btn-primary btn-block btn-medium">
+          Predict
+        </button>
+      </form>
+      <br />
+      <div>{{ prediction_text }}</div>
+    </div>
+  </body>
+</html>
